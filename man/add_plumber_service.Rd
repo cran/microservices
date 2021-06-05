@@ -2,9 +2,12 @@
 % Please edit documentation in R/plumber-add_service.R
 \name{add_plumber_service}
 \alias{add_plumber_service}
+\alias{add_service}
 \title{Add a Service Route to the Microservice}
 \usage{
 add_plumber_service(path = ".", name, overwrite = FALSE)
+
+add_service(path = ".", name, overwrite = FALSE)
 }
 \arguments{
 \item{path}{(\code{character}) Where is the project root folder?}
@@ -21,42 +24,8 @@ No return value, called for side effects.
 \description{
 Expose additional set of services on a separate URL.
 }
-\details{
-Lay the infrastructure for an additional set of services. That includes
-adding a unit test, adding an endpoint, and extending the entrypointy.\if{html}{\out{
-<div class="alert alert-warning">
-}}
-
-
-\strong{Note:} \code{add_plumber_service} adds a service to pre-existing plumber
-microservice which you could deploy by calling
-\code{use_plumber_microservice}.\if{html}{\out{
-</div>
-}}
-
-\subsection{How It Works}{
-
-Given a \code{path} (“.”) to a folder and a \code{name} (“repository”)
-
-When \code{add_plumber_service} is called
-
-Then the function creates the following files:\if{html}{\out{<div class="r">}}\preformatted{tests/testthat/test-endpoint-plumber-repository.R
-inst/endpoints/plumber-repository.R
-}\if{html}{\out{</div>}}
-
-And updates the following files:\if{html}{\out{<div class="r">}}\preformatted{inst/entrypoints/plumber-foreground.R
-}\if{html}{\out{</div>}}
-}
-
-\subsection{When to Use}{
-
-In scenarios where services are thematically linked to each other.
-Examples for themes that should be mounted separately:
-\itemize{
-\item “forecasting” and “anomaly detection”
-\item “user” and “business”
-}
-}
+\note{
+\code{add_plumber_service()} and \code{add_service()} are synonyms.
 }
 \examples{
 path <- tempfile()
