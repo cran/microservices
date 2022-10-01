@@ -22,38 +22,37 @@ No return value, called for side effects.
 Expose additional set of services on a separate URL.
 }
 \details{
-Lay the infrastructure for an additional set of services. That includes
-adding a unit test, adding an endpoint, and extending the entrypointy.\if{html}{\out{
-<div class="alert alert-warning">
-}}
-
-
-\strong{Note:} \code{add_service} adds a service to pre-existing plumber
-microservice which you could deploy by calling \code{use_microservice}.\if{html}{\out{
+Lay the infrastructure for an additional set of services. That includes adding a
+unit test, adding an endpoint, and extending the entrypointy.<div class="alert alert-warning">
+**Note:** `add_service` adds a service to pre-existing plumber microservice which
+ you could deploy by calling `use_microservice`.
 </div>
-}}
 
 \subsection{How It Works}{
 
-Given a \code{path} (.) to a folder and a \code{name} (repository)
+Given a \code{path} to a folder and a service \code{name}
 
-When \code{add_service} is called
+When \code{add_service(path, name)} is called
 
-Then the function creates the following files:\if{html}{\out{<div class="r">}}\preformatted{tests/testthat/test-endpoint-plumber-repository.R
-inst/endpoints/plumber-repository.R
+Then the function creates the following files:
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{tests/testthat/test-endpoint-plumber-\{route_name\}.R
+inst/endpoints/plumber-\{route_name\}.R
 }\if{html}{\out{</div>}}
 
-And updates the following files:\if{html}{\out{<div class="r">}}\preformatted{inst/entrypoints/plumber-foreground.R
+And updates the following files:
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{inst/entrypoints/plumber-foreground.R
 }\if{html}{\out{</div>}}
 }
 
 \subsection{When to Use}{
 
-In scenarios where services are thematically linked to each other.
-Examples for themes that should be mounted separately:
+In scenarios where services are thematically linked to each other. Examples for
+themes that should be mounted separately:
 \itemize{
-\item ‘forecasting’ and ‘anomaly detection’
-\item ‘user’ and ‘business’
+\item 'forecasting' and 'anomaly detection'
+\item 'user' and 'business'
 }
 }
 }

@@ -25,14 +25,18 @@ Given a \code{path} to a folder
 
 When \code{use_microservice(path = ".")} is called
 
-Then the function creates the following files:\if{html}{\out{<div class="r">}}\preformatted{tests/testthat/test-endpoint-plumber-utility.R
+Then the function creates the following files:
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{tests/testthat/test-endpoint-plumber-utility.R
 inst/configurations/plumber.yml
 inst/endpoints/plumber-utility.R
 inst/entrypoints/plumber-background.R
 inst/entrypoints/plumber-foreground.R
 }\if{html}{\out{</div>}}
 
-And updates the following files:\if{html}{\out{<div class="r">}}\preformatted{tests/testthat/helpers-xyz.R
+And updates the following files:
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{tests/testthat/helpers-xyz.R
 }\if{html}{\out{</div>}}
 
 And adds the following packages to the DESCRIPTION file:\tabular{lll}{
@@ -61,34 +65,25 @@ to automate processes.
 \subsection{\code{plumber} Advantages}{
 \itemize{
 \item Comes with familiar way to document the microservice endpoint.
-\item Maturing package that comes with documentation, examples and
-support.
+\item Maturing package that comes with documentation, examples and support.
 }
 }
 
 \subsection{\code{plumber} Disadvantages}{
 \itemize{
-\item Runs on a single thread. That means that parallel algorithms such as
-random forest, can only be run on one core.
+\item Runs on a single thread. That means that parallel algorithms such as random
+forest, can only be run on one core.
 \item Serves only one caller at a time.
-\item Can’t make inward calls for other services, That means plumber can’t
-be
-\href{https://en.wikipedia.org/wiki/Reentrancy_(computing)}{re-entrant}.
-For example, if a microservice has three endpoints,\code{read_table},
-\code{write_table}, and \code{orchestrator}, where the \code{orchestrator} reads a
-data table, transforms it, and writes it back, then the
-\code{orchestrator} can’t make inwards calls via HTTP to \code{read_table} and
-\code{write_table}.
-}\if{html}{\out{
-<div class="alert alert-warning">
-}}
-
-
-\strong{Note:} While \code{plumber} is single-threaded by nature, it is possible
-to perform parallel execution using the \code{promises} package. See links
-under References.\if{html}{\out{
+\item Can't make inward calls for other services, That means plumber can't be
+\href{https://en.wikipedia.org/wiki/Reentrancy_(computing)}{re-entrant}. For
+example, if a microservice has three endpoints,\code{read_table}, \code{write_table},
+and \code{orchestrator}, where the \code{orchestrator} reads a data table, transforms
+it, and writes it back, then the \code{orchestrator} can't make inwards calls via
+HTTP to \code{read_table} and \code{write_table}.
+}<div class="alert alert-warning">
+**Note:** While `plumber` is single-threaded by nature, it is possible to perform
+ parallel execution using the `promises` package. See links under References.
 </div>
-}}
 
 }
 
@@ -97,8 +92,10 @@ under References.\if{html}{\out{
 \subsection{Workflow}{
 \enumerate{
 \item Deploy the Microservice infrastructure
-}\if{html}{\out{<div class="r">}}\preformatted{microservices::use_microservice(path = ".")
-remotes::install_deps()
+}
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{microservices::use_microservice(path = ".")
+remotes::install_deps(dependencies = TRUE)
 devtools::document()
 }\if{html}{\out{</div>}}
 \enumerate{
@@ -107,21 +104,13 @@ devtools::document()
 \item Run the microservice unit-test by pressing Ctrl+Shift+T on Windows
 }
 
-Congratulations! You have added a microservice to your application and
-tested that it works.\if{html}{\out{
-<!--
-## Further Reading
-
-* How to use the rudimentary microservice?
-* How to extend, that is customise, the rudimentary microservice?
--->
-}}
-
+Congratulations! You have added a microservice to your application and tested
+that it works.
 }
 
 \subsection{References}{
 \itemize{
-\item \href{https://blog.rstudio.com/2021/03/29/plumber-v1-1-0/#parallel-exec}{Parallel execution in plumber}
+\item \href{https://www.rstudio.com/blog/plumber-v1-1-0/#parallel-exec}{Parallel execution in plumber}
 \item \href{https://rstudio.github.io/promises/articles/overview.html}{\code{promises} package}
 }
 }
